@@ -8,7 +8,7 @@ import { UiIcon } from '../components/UiIcon';
 import { EXTRAS, HANDS, ICON_LABELS, INKS, MACHINE, MAX_QTY, PRODUCTS } from '../data/catalog';
 import { OCCASIONS } from '../data/occasions';
 import { newPickupCode, savePickup } from '../lib/handoff';
-import { useDevice, useMachine } from '../lib/hooks';
+import { useDevice } from '../lib/hooks';
 import { aboutMinutes, writingSeconds } from '../lib/layout';
 import { chf, quote } from '../lib/pricing';
 import { useOnScreenTyping } from '../lib/typing';
@@ -270,7 +270,6 @@ type Stage = 'choose' | PayMethod | 'approved';
 
 function PaymentModal({ open, total, onClose }: { open: boolean; total: number; onClose: () => void }) {
   const { state, dispatch } = useStore();
-  const machine = useMachine();
   const [stage, setStage] = useState<Stage>('choose');
   const [counterCode] = useState(() => newPickupCode());
   const [wasOpen, setWasOpen] = useState(open);
@@ -287,15 +286,11 @@ function PaymentModal({ open, total, onClose }: { open: boolean; total: number; 
     }, 1400);
   };
 
-  // The card reader under the screen lights up while waiting for a card. In the prototype the payment goes through by itself.
+  // In the prototype a TWINT payment goes through by itself after a moment.
   useEffect(() => {
-    if (!open || (stage !== 'card' && stage !== 'twint')) return;
-    if (stage === 'card') machine.setReader(true);
-    const t = window.setTimeout(() => approve(stage), stage === 'card' ? 5000 : 7000);
-    return () => {
-      window.clearTimeout(t);
-      machine.setReader(false);
-    };
+    if (!open || stage !== 'twint') return;
+    const t = window.setTimeout(() => approve('twint'), 7000);
+    return () => window.clearTimeout(t);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [open, stage]);
 
@@ -303,36 +298,21 @@ function PaymentModal({ open, total, onClose }: { open: boolean; total: number; 
   return (
     <Modal open={open} onClose={busy ? undefined : onClose} title={stage === 'approved' ? 'Paid, thank you!' : `Pay ${chf(total)}`} size="md">
       {stage === 'choose' && (
-        <div className="pay-options">
-          <button type="button" className="pay-option" onClick={() => setStage('card')}>
-            <UiIcon name="contactless" size={40} />
-            <strong>Card or phone</strong>
-            <span>Debit, credit, Apple Pay, Google Pay</span>
-          </button>
-          <button type="button" className="pay-option" onClick={() => setStage('twint')}>
-            <UiIcon name="qr" size={40} />
-            <strong>TWINT</strong>
-            <span>Scan a code with the app</span>
-          </button>
-          <button type="button" className="pay-option" onClick={() => setStage('counter')}>
-            <UiIcon name="shop" size={40} />
-            <strong>At the counter</strong>
-            <span>Cash or card at the till</span>
-          </button>
-        </div>
-      )}
-
-      {stage === 'card' && (
-        <div className="pay-wait">
-          <div className="pay-tap">
-            <UiIcon name="contactless" size={64} />
+        <>
+          <div className="pay-options">
+            <button type="button" className="pay-option" onClick={() => setStage('twint')}>
+              <UiIcon name="qr" size={40} />
+              <strong>TWINT</strong>
+              <span>Scan a code on the screen with the TWINT app</span>
+            </button>
+            <button type="button" className="pay-option" onClick={() => setStage('counter')}>
+              <UiIcon name="shop" size={40} />
+              <strong>At the counter</strong>
+              <span>Cash or card at the shop’s till</span>
+            </button>
           </div>
-          <p className="pay-big">Hold your card or phone to the reader below the screen.</p>
-          <p className="pay-arrow">
-            <UiIcon name="arrowDown" size={36} />
-          </p>
-          <PayFoot onBack={() => setStage('choose')} onSimulate={() => approve('card')} />
-        </div>
+          <p className="muted small center">Want to pay by card? The till takes all cards.</p>
+        </>
       )}
 
       {stage === 'twint' && (

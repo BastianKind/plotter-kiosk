@@ -1,6 +1,5 @@
 import { useLayoutEffect, useMemo, useRef, useState } from 'react';
 import logo from '../assets/logo.webp';
-import { UiIcon } from '../components/UiIcon';
 import { MACHINE } from '../data/catalog';
 import { MachineContext } from '../lib/hooks';
 import { DeviceApp } from './Screens';
@@ -12,9 +11,8 @@ const BEZEL = 34;
 const BASE = 176;
 
 export function KioskFrame({ frame }: { frame: boolean }) {
-  const [reader, setReader] = useState(false);
   const [tray, setTray] = useState(false);
-  const signals = useMemo(() => ({ reader, tray, setReader, setTray }), [reader, tray]);
+  const signals = useMemo(() => ({ tray, setTray }), [tray]);
   const stageRef = useRef<HTMLDivElement>(null);
   const [scale, setScale] = useState(0.8);
 
@@ -48,12 +46,6 @@ export function KioskFrame({ frame }: { frame: boolean }) {
             </div>
             {frame && (
               <div className="machine-base">
-                <div className={`reader${reader ? ' is-active' : ''}`}>
-                  <span className="reader-plate">
-                    <UiIcon name="contactless" size={44} />
-                  </span>
-                  <span className="base-label">Pay here</span>
-                </div>
                 <div className="base-brand">
                   <img src={logo} alt="" />
                   <span>

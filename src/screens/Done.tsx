@@ -8,7 +8,7 @@ import { quote } from '../lib/pricing';
 import { useStore } from '../state/store';
 
 const RESET_AFTER = 45;
-const PAID_BY = { card: 'card', twint: 'TWINT', counter: 'at the counter' } as const;
+const PAID_BY = { twint: 'with TWINT', counter: 'at the counter' } as const;
 
 export function Done() {
   const { state, dispatch } = useStore();

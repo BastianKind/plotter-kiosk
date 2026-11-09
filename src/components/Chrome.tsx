@@ -112,6 +112,8 @@ export function HelpModal({ open, onClose }: { open: boolean; onClose: () => voi
         <dd>Most cards are ready in 1 to 3 minutes. You can watch the pen while it writes.</dd>
         <dt>Can it write in my own handwriting?</dt>
         <dd>Yes. Under “Style”, write each letter once on the screen with the pen or your finger. We use your letters for the card.</dd>
+        <dt>How can I pay?</dt>
+        <dd>With TWINT: scan the code on the screen with the app. Or pay at the shop’s till, in cash or by card.</dd>
         <dt>Can I send the card straight away?</dt>
         <dd>Add the address and an A-Post stamp before you pay. Then just drop it in any letterbox.</dd>
         {device === 'phone' ? (

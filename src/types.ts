@@ -17,7 +17,7 @@ export type OccasionKey = 'birthday' | 'thanks' | 'congrats' | 'love' | 'getwell
 export type HandKey = 'jamie' | 'noah' | 'lea' | 'own';
 export type InkKey = 'charcoal' | 'blue' | 'sepia';
 export type Field = 'opening' | 'message' | 'closing';
-export type PayMethod = 'card' | 'twint' | 'counter';
+export type PayMethod = 'twint' | 'counter';
 
 export type IconKey =
   | 'sun'

@@ -17,7 +17,7 @@ Then open http://localhost:5174 (the web shop prototype uses 5173, so both can r
 - **Your own handwriting:** write each letter once on the writing pad (just the letters in your card, or the whole alphabet). The card is then written with your letters. Skipped letters fall back to the Jamie style.
 - **Little drawing:** pick one of 12 line drawings, or draw your own with a finger or stylus.
 - **Address and stamp:** the address is written on the envelope (or on the postcard) by the same pen, and an A-Post stamp can be added.
-- **Paying:** by card, TWINT or at the counter. All of it is simulated, and the card reader under the screen lights up.
+- **Paying:** with TWINT (a QR code on the screen) or at the shop's till. Both are simulated. The machine has no card reader, because one is expensive and a hassle to run; people who want to pay by card use the till.
 - **Phone (QR code):** the same steps on a phone. It ends with a 4-digit pickup code, which you type in at the machine under "I have a pickup code".
 - **Machine details:** "Are you still there?" after 90 seconds without a tap, automatic reset after the last screen, help pop-up and language buttons (only English works).
 

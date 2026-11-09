@@ -34,14 +34,12 @@ export const useDevice = () => useContext(DeviceContext);
 export const PortalContext = createContext<HTMLElement | null>(null);
 export const usePortal = () => useContext(PortalContext);
 
-/** Parts of the machine around the screen: the card reader lights up, the tray shows the finished card. */
+/** Parts of the machine around the screen: the tray shows the finished card. */
 export interface MachineSignals {
-  reader: boolean;
   tray: boolean;
-  setReader: (on: boolean) => void;
   setTray: (on: boolean) => void;
 }
-export const MachineContext = createContext<MachineSignals>({ reader: false, tray: false, setReader: () => {}, setTray: () => {} });
+export const MachineContext = createContext<MachineSignals>({ tray: false, setTray: () => {} });
 export const useMachine = () => useContext(MachineContext);
 
 /** Address of the phone version, for the QR code on the machine. */
