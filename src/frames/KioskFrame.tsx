@@ -1,5 +1,5 @@
 import { useLayoutEffect, useMemo, useRef, useState } from 'react';
-import logo from '../assets/logo.webp';
+import logo from '../assets/logo.svg';
 import { MACHINE } from '../data/catalog';
 import { MachineContext } from '../lib/hooks';
 import { DeviceApp } from './Screens';

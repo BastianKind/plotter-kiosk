@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import logo from '../assets/logo.webp';
+import logo from '../assets/logo.svg';
 import { HelpModal, useSheets } from '../components/Chrome';
 import { Modal } from '../components/Modal';
 import { QrCode } from '../components/QrCode';

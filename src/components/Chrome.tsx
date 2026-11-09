@@ -1,5 +1,5 @@
 import { useMemo, useState, type ReactNode } from 'react';
-import logo from '../assets/logo.webp';
+import logo from '../assets/logo.svg';
 import { INKS, MACHINE, PRODUCTS } from '../data/catalog';
 import { useDevice, useFonts } from '../lib/hooks';
 import { layoutCard, layoutEnvelope } from '../lib/layout';

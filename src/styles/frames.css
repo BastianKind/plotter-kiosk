@@ -221,7 +221,6 @@
 .base-brand img {
   height: 46px;
   width: auto;
-  mix-blend-mode: multiply;
 }
 
 .tray-slot {
