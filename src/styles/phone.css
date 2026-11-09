@@ -1,0 +1,689 @@
+/* Phone version: the same screens, stacked, with the phone's own keyboard. */
+
+.dev-phone {
+  font-size: 16px;
+}
+
+.dev-phone .screen-scroll {
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  -webkit-overflow-scrolling: touch;
+}
+
+.dev-phone .screen-body {
+  flex: none;
+  display: block;
+  padding: 18px 16px 24px;
+}
+
+.dev-phone .screen-title {
+  font-size: 25px;
+}
+
+/* top and bottom bars stick while the screen scrolls */
+
+.dev-phone .topbar {
+  position: sticky;
+  top: 0;
+  height: 56px;
+  gap: 10px;
+  padding: 0 12px 0 16px;
+}
+
+.dev-phone .topbar-logo {
+  height: 22px;
+}
+
+.topbar-machine {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 3px 9px;
+  border-radius: 999px;
+  background: var(--blue-softer);
+  color: var(--blue);
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.topbar-step {
+  font-size: 13px;
+  color: var(--text-3);
+  white-space: nowrap;
+}
+
+.dev-phone .topbar-title {
+  font-size: 16px;
+}
+
+.dev-phone .topbar-right {
+  gap: 6px;
+}
+
+.dev-phone .chip-btn {
+  width: 40px;
+  height: 40px;
+  padding: 0;
+  justify-content: center;
+}
+
+.dev-phone .chip-btn span {
+  display: none;
+}
+
+.dev-phone .bottombar {
+  position: sticky;
+  bottom: 0;
+  margin-top: auto;
+  height: auto;
+  grid-template-columns: auto 1fr auto;
+  gap: 8px;
+  padding: 10px 12px calc(10px + env(safe-area-inset-bottom));
+}
+
+.dev-phone .bottombar .btn-lg {
+  height: 50px;
+  padding: 0 18px;
+  font-size: 16px;
+}
+
+.dev-phone .bb-middle {
+  justify-content: center;
+  text-align: center;
+}
+
+.dev-phone .bb-note {
+  font-size: 12px;
+  line-height: 1.25;
+}
+
+.dev-phone .btn-lg {
+  height: 52px;
+  font-size: 17px;
+}
+
+.dev-phone .toasts {
+  bottom: 84px;
+}
+
+.dev-phone .toast {
+  font-size: 14px;
+  padding: 10px 16px;
+  border-radius: 16px;
+}
+
+/* bottom-sheet pop-ups */
+
+.dev-phone .modal-backdrop {
+  place-items: end stretch;
+  padding: 0;
+}
+
+.dev-phone .modal {
+  max-width: none;
+  max-height: 94%;
+  border-radius: 22px 22px 0 0;
+}
+
+.dev-phone .modal-head h2 {
+  font-size: 22px;
+}
+
+.dev-phone .modal-head {
+  padding: 16px 16px 4px 20px;
+}
+
+.dev-phone .modal-body {
+  padding: 6px 20px 16px;
+}
+
+.dev-phone .modal-foot {
+  padding: 12px 16px calc(14px + env(safe-area-inset-bottom));
+}
+
+.dev-phone .modal-actions {
+  flex-wrap: wrap;
+}
+
+.dev-phone .modal-actions .btn {
+  flex: 1;
+}
+
+.dev-phone .modal-actions .btn-ghost:first-child {
+  flex-basis: 100%;
+  margin: 0;
+}
+
+.dev-phone .faq dt {
+  font-size: 16px;
+}
+
+.dev-phone .faq dd {
+  font-size: 15px;
+}
+
+/* fields */
+
+.dev-phone .field {
+  grid-template-columns: 1fr;
+  gap: 4px;
+}
+
+.dev-phone .field-label {
+  padding-top: 0;
+  flex-direction: row;
+  justify-content: space-between;
+  font-size: 14px;
+}
+
+.dev-phone .field input,
+.dev-phone .field textarea {
+  font-size: 17px;
+  padding: 10px 12px;
+}
+
+/* welcome */
+
+.p-welcome {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
+  padding: 22px 20px calc(28px + env(safe-area-inset-bottom));
+  text-align: center;
+  background: #fff;
+  min-height: 100%;
+}
+
+.p-welcome-logo {
+  width: 150px;
+}
+
+.machine-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 5px 12px;
+  border-radius: 999px;
+  background: var(--blue-softer);
+  color: var(--blue);
+  font-size: 13px;
+  font-weight: 600;
+}
+
+.p-welcome h1 {
+  font-family: var(--font-display);
+  font-size: 29px;
+  font-weight: 600;
+  line-height: 1.12;
+  letter-spacing: -0.01em;
+}
+
+.p-demo {
+  height: 260px;
+  margin: 6px 0;
+}
+
+.p-how {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  text-align: left;
+  font-size: 15px;
+}
+
+.p-how li {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.p-how li span {
+  flex: none;
+  width: 30px;
+  height: 30px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--blue-soft);
+  color: var(--blue);
+  font-weight: 700;
+}
+
+/* choose card */
+
+.dev-phone .products {
+  grid-template-columns: 1fr;
+  gap: 12px;
+  margin-top: 16px;
+}
+
+.dev-phone .product {
+  flex-direction: row;
+  align-items: center;
+  gap: 14px;
+  padding: 12px;
+  border-radius: 18px;
+}
+
+.dev-phone .product-art {
+  flex: none;
+  width: 108px;
+  height: 108px;
+  padding: 10px;
+}
+
+.dev-phone .product-text {
+  padding-right: 26px;
+}
+
+.dev-phone .product-name {
+  font-size: 19px;
+  flex-wrap: wrap;
+  column-gap: 8px;
+  row-gap: 0;
+}
+
+.dev-phone .product-size {
+  font-size: 13px;
+}
+
+.dev-phone .product-blurb {
+  font-size: 14px;
+  min-height: 0;
+}
+
+.dev-phone .product-price {
+  font-size: 17px;
+  margin-top: 2px;
+}
+
+.dev-phone .tick {
+  width: 26px;
+  height: 26px;
+  top: 10px;
+  right: 10px;
+}
+
+.dev-phone .shop-hint {
+  margin-top: 16px;
+  padding: 12px 14px;
+  font-size: 14px;
+}
+
+/* occasion */
+
+.dev-phone .occasions {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 16px;
+}
+
+.dev-phone .occ {
+  height: 116px;
+  gap: 6px;
+  border-radius: 18px;
+}
+
+.dev-phone .occ-art {
+  width: 42px;
+  height: 42px;
+}
+
+.dev-phone .occ-label {
+  font-size: 17px;
+}
+
+.dev-phone .occ-note {
+  font-size: 12px;
+  margin-top: -4px;
+}
+
+/* message */
+
+.dev-phone .msg-top {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.dev-phone .msg-preview {
+  order: -1;
+  height: 250px;
+  margin: -4px -16px 0;
+  padding: 14px 16px 6px;
+  background: var(--desk);
+}
+
+.dev-phone .msg-preview .notice {
+  position: static;
+  margin-top: 8px;
+  box-shadow: none;
+  font-size: 14px;
+}
+
+.dev-phone .msg-preview:has(.notice) {
+  height: auto;
+}
+
+.dev-phone .msg-preview:has(.notice) .preview {
+  height: 220px;
+  flex: none;
+}
+
+.dev-phone .msg-fields {
+  gap: 12px;
+}
+
+.dev-phone .message .screen-title {
+  font-size: 22px;
+}
+
+.dev-phone .ideas {
+  margin-left: 0;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.dev-phone .idea {
+  flex: none;
+  height: auto;
+  min-height: 40px;
+  padding: 8px 14px;
+  border-radius: 14px;
+  white-space: normal;
+  text-align: left;
+  font-size: 14px;
+}
+
+/* style */
+
+.dev-phone .style {
+  display: block;
+}
+
+.dev-phone .style-preview {
+  height: 250px;
+  margin: -18px -16px 0;
+  padding: 14px 16px 6px;
+  background: var(--desk);
+}
+
+.dev-phone .style-panel .screen-title {
+  margin-top: 16px;
+}
+
+.dev-phone .hands {
+  grid-template-columns: repeat(2, 1fr);
+  gap: 8px;
+}
+
+.dev-phone .hand {
+  height: 96px;
+}
+
+.dev-phone .inks {
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.dev-phone .ink {
+  height: 44px;
+  padding: 0 14px 0 10px;
+  font-size: 15px;
+}
+
+.dev-phone .drawings {
+  grid-template-columns: repeat(5, 1fr);
+  gap: 8px;
+}
+
+.dev-phone .drw {
+  height: 56px;
+  padding: 10px;
+}
+
+.dev-phone .doodle {
+  grid-template-columns: 1fr;
+}
+
+.dev-phone .doodle-side {
+  flex-direction: row;
+  flex-wrap: wrap;
+  font-size: 14px;
+}
+
+.dev-phone .doodle-side p {
+  flex-basis: 100%;
+}
+
+/* own handwriting */
+
+.dev-phone .hw {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.dev-phone .hw-left {
+  display: contents;
+}
+
+.dev-phone .hw .screen-title {
+  font-size: 22px;
+}
+
+.dev-phone .hw .seg {
+  flex-direction: row;
+  border-radius: 999px;
+}
+
+.dev-phone .hw .seg button {
+  flex: 1;
+  height: 40px;
+  padding: 0 10px;
+  font-size: 13px;
+  justify-content: center;
+  border-radius: 999px;
+}
+
+.dev-phone .hw-target {
+  order: 1;
+  padding: 6px 16px;
+}
+
+.dev-phone .hw-char {
+  font-size: 54px;
+}
+
+.dev-phone .hw-tip {
+  order: 3;
+  font-size: 14px;
+}
+
+.dev-phone .hw-pad {
+  order: 2;
+}
+
+.dev-phone .hw-tools {
+  order: 2;
+}
+
+.dev-phone .hw-right {
+  order: 4;
+}
+
+.dev-phone .hw-grid {
+  grid-auto-flow: column;
+  grid-template-columns: none;
+  grid-auto-columns: 44px;
+  grid-template-rows: 48px;
+  overflow-x: auto;
+  max-height: none;
+}
+
+.dev-phone .hw-cell {
+  height: 48px;
+}
+
+.dev-phone .hw-preview {
+  flex: none;
+  height: 240px;
+}
+
+/* review */
+
+.dev-phone .review {
+  display: block;
+}
+
+.dev-phone .review-stage {
+  height: 290px;
+  margin: -18px -16px 16px;
+  padding: 14px 16px 10px;
+  border-radius: 0;
+}
+
+.dev-phone .review-panel {
+  gap: 10px;
+}
+
+.dev-phone .review .screen-title {
+  font-size: 22px;
+}
+
+.dev-phone .summary > div {
+  grid-template-columns: 100px 1fr auto;
+  gap: 8px;
+}
+
+.dev-phone .summary dt,
+.dev-phone .summary .btn-link {
+  font-size: 13px;
+}
+
+.dev-phone .summary dd {
+  font-size: 14px;
+}
+
+.dev-phone .opt-text {
+  font-size: 15px;
+}
+
+.dev-phone .opt-text .small,
+.dev-phone .addr-line {
+  font-size: 13px;
+}
+
+.dev-phone .stepper button {
+  width: 40px;
+  height: 40px;
+}
+
+.dev-phone .stepper output {
+  font-size: 21px;
+  min-width: 30px;
+}
+
+.dev-phone .price {
+  margin-top: 6px;
+}
+
+.dev-phone .price-total {
+  font-size: 22px;
+}
+
+.dev-phone .addr-form {
+  grid-template-columns: 1fr;
+  gap: 12px;
+}
+
+/* sent */
+
+.sent {
+  text-align: center;
+}
+
+.dev-phone .sent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+}
+
+.sent-ok {
+  width: 72px;
+  height: 72px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  background: var(--success);
+  color: #fff;
+  animation: pop 0.45s ease-out;
+}
+
+.sent h1 {
+  font-family: var(--font-display);
+  font-size: 25px;
+  font-weight: 600;
+  line-height: 1.15;
+}
+
+.sent .muted {
+  font-size: 15px;
+}
+
+.sent-code {
+  display: flex;
+  gap: 10px;
+}
+
+.sent-code span {
+  width: 58px;
+  height: 70px;
+  display: grid;
+  place-items: center;
+  border-radius: 14px;
+  background: #fff;
+  border: 2px solid var(--blue);
+  font-family: var(--font-display);
+  font-size: 38px;
+  font-weight: 600;
+  color: var(--navy);
+}
+
+.sent-facts {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  padding: 12px 14px;
+  border-radius: 14px;
+  background: #fff;
+  text-align: left;
+  font-size: 14px;
+}
+
+.sent-facts li {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.sent-facts svg {
+  flex: none;
+  color: var(--blue);
+}
+
+.sent-preview {
+  height: 220px;
+  align-self: stretch;
+}
+
+.sent-actions {
+  align-self: stretch;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
